@@ -1,17 +1,36 @@
 
-# An Analysis of Kickstarter Campaigns
-Performing analysis on Kickstarter data to uncover trends and make recommendations accordingly.
+# Kickstarting with Excel
 
-From the analysis of the Kickstarter Campaigns data set we observe that there are over 4,000 campaigns in 9 different categories. We limit our analysis with 'plays in the US' and 'musicals in GB' since Louise is interested to acquire more information on these subcategories. Plays and musicals are both subcategories of theater. 
-![Category Statistics](https://user-images.githubusercontent.com/81400525/115627707-15077780-a2c5-11eb-8599-df7e93bab8b9.png)
+## Overview of Project
 
-In the US there are 525 successful and 349 failed theater Kickstarters. When we compare outcomes based on launch date for theater we notice that May is the most successful date to launch a campaign, while December seems to be the worst time. In December failed campaigns (e.g. 35) are almost as much as the successful (e.g. 37) ones. In May, successful theater kickstarters (e.g. 111) more than twice as much as the failed ones (e.g. 52). June and July also are fairly good times to start a theater campaign.
+Louise is a play writer who is interested in learning how different theater campaigns performed in relation to their launch date and their funding goals.She nearly met her fundraising goal in her play ‘Fever’ and now she wants to get more in depth information about other campaigns.
 
-![Outcomes Based on Launch Date](https://user-images.githubusercontent.com/81400525/115627839-4d0eba80-a2c5-11eb-8b09-665f34c4ec26.png)
+### Purpose
 
-The data also shows that there are total 604 Kickstarter Campaigns in GB and the theater is most successful category. There are 359 Kickstarter campaigns for theater of which 314 are plays. The number of successful plays is 238 making the plays by far te most successful subcategory. There are only 26 musicals of which 10 of them were successful while 11 were not. From the Box and Whisker plot of the musical we can see tha the mean goal is 4,000 while the mean pledged is 1,000 pound sterling. Half of the campaign goals (the median) is less than 2,000 pound sterling whichis above the upper quartile for amounts pledged. 
+The aim of this report is to uncover trends in the Kickstarter data and provide Louise with data analyses and visualizations to help her plan and set up her project.
 
-![Box and Whisker Plot](https://user-images.githubusercontent.com/81400525/115627886-56982280-a2c5-11eb-98c1-9aa6a3b4634a.png)
-Furthermore, when we look at the descriptive statistics we notice that failed Kickstarter campaigns have considerably higher goals than the successful ones. The average goal for failed successful campaigns is twice as much as the successful campaigns. Also, we notice that the mean and the median pledged amounts for successful campaigns are much higher compared to failed campaigns. 
+## Analysis and Challenges
 
-Based on our analyses, we see that theater is the most successful category and plays is the most successful subcategory. So, if Louise wants to succeed she should launch plays.She should also eliminate excessively large funding goals. These outliers cause data to be widely dispersed. The data shows that the best times to launch a play is around May, June and July. She should avoid December to launch a campaign. Furthermore, for her campaign in GB, it might be a better idea to choose plays instead of musicals, since plays are clearly more successful. However, if she wants to stick with musicals, then she should keep her goal for the campaign under 4,000 sterling pounds.
+From the analysis of the Kickstarter Campaigns dataset we observe that there are over 4,000 campaigns in 9 different categories. Theater is the most successful category with 525 successful campaigns which is followed by the ‘music’(490 successful campaigns) and the ‘film & video’(261 successful campaigns) categories. 
+
+### Analysis of Outcomes Based on Launch Date
+
+When we look at the pivot table and graph for theater outcomes based on launch date, we can see that May is the ideal date to launch a campaign while December is the worst date. There are 111 successful plays in May (almost 67% of the theater campaigns were successful), while this number is only 37 in December which translates into a 49.3% success rate. June (65.36% success rate) and July (63% success rate) are also fairly good choices to launch a play. The graph also delineates that launch date does not affect its cancellation rate as the line is almost constant throughout the year.
+![Theater_Outcomes_vs_ Launch](https://user-images.githubusercontent.com/81400525/115952944-8bb39900-a4ae-11eb-87bc-1ceab6bf0529.png)
+
+### Analysis of Outcomes Based on Goals
+
+The analysis of outcomes based on goals reveals that the success rate of the campaign decreases as the amount of goal increases. When goal is less than $1,000, 76% of the campaigns are successful, followed by 73% for the goal amount ranging between $1,000 and $5,000. The percentage of successful campaigns continue to be higher than the failed ones until the amount of goal reaches approximately $15,000. It picks up again around $37,000 until around $43,000. For the goal amount ranging between $45,000 and $49,999 all of the campaigns fail.Between goal amount $15,000 and $35,000 the percentage of failed campaigns are more than the percentage of successful campaigns.This is also true when the goal amount is over $45,000.
+![Outcomes_vs_Goals](https://user-images.githubusercontent.com/81400525/115952969-a0902c80-a4ae-11eb-9dd4-805b85c3bb01.png)
+
+
+### Challenges and Difficulties Encountered
+
+The dates in the initial data set were not readable. They were entered in Unix time stamps, not standard format. First, we confirmed that these numbers in the date column were not just random numbers by using an online converter tool. After this step, we converted all the unix time stamps to standard format using a formula in Excel. Another problem we encountered was the errors in the ‘average donation’ column that we have created.We determined that some campaigns had no backers, therefore they received no funding. Hence, dividing 0/0 returned an error for these data. We fixed this by using the “IFERROR” formula in Excel.
+
+## Results
+
+The data on “Outcomes based on Launch Date’ reveals that theater is successful project throughout the year. The number of successful campaigns are always greater than the failed campaigns. Furthermore, in December failed campaigns (e.g. 35) are almost as much as the successful (e.g. 37) campaigns. In May, successful theater kick-starters (e.g. 111) are more than twice as much as the failed ones (e.g. 52). Based on the results of our analyses regarding “Outcomes Based on Launch Date” it might be better for Louise to consider launching her play in May. The line graph for “Outcomes based on Goals” shows that the success rate of the campaigns decreases as the funding goal increases.Campaigns with lower goals seem to be more successful than the campaigns with higher goals. If Louise wants to increase her chances of success to around 70% it would be wiser for her to keep her goal between $1,000 and $2,000. If she sets her goal between $5,000 and $10,000, there is approximately 50% chance that her campaign will succeed. The number of parent categories in the dataset is only nine which could be considered a limitation. The name and the blurb of the campaign could impact the amount of donations made. However, this requires qualitative analysis and we cannot perform that in Excel.This could be a potential limitation as well. In order to achieve a greater level of understanding of the dataset, it might be helpful to create a table to demonstrate the relationship between average donation and the month to uncover any potential trends between these variables. In addition,  creating a Box and Whisker plot for the plays to determine and visualize the outliers, the mean, the median and the upper and the lower quartiles might help Louise form more solid insights. Finally, it might be a good idea to check the relationship between the duration of the campaign and the success of the campaign.
+
+
+
